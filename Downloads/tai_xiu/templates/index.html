@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Tài Xỉu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Game Tài Xỉu</h1>
+        <div>
+            <button onclick="play('Tài')">Đặt Tài</button>
+            <button onclick="play('Xỉu')">Đặt Xỉu</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        function play(bet) {
+            fetch('/play', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({bet: bet})
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML =
+                    `<p>Xúc xắc: ${data.dice.join(', ')}</p>
+                     <p>Tổng: ${data.total} - ${data.result}</p>
+                     <p>${data.win ? 'Bạn thắng!' : 'Bạn thua!'}</p>`;
+            });
+        }
+    </script>
+</body>
+</html>
