@@ -13,13 +13,13 @@ Một ứng dụng web đơn giản cho phép người chơi thử vận may v�
 
 1. Clone repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/Bao3Q/taixiu.git
+cd taixiu
 ```
 
 2. Cài đặt các thư viện cần thiết:
 ```bash
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 3. Chạy ứng dụng:
